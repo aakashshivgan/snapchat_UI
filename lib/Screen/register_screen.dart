@@ -42,13 +42,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                     const SizedBox(
-                      height: 50,
+                      height: 20,
                     ),
                     feildOnScreen(),
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 14),
               signUpButton(),
             ],
           ),
@@ -73,13 +73,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: TextFieldsForScreen(
                 label: "Username",
                 txtType: TextInputType.name,
+                validator: (val) =>
+                    val.length < 2 ? "Minimum 2 characters are needed" : null,
                 onChange: (val) {
                   setState(() {
                     username = val;
                   });
                 },
-                validator: (val) =>
-                    val.isempty ? "Minimum 2 characters are needed" : null,
                 obscure: false),
           ),
           const SizedBox(
@@ -90,12 +90,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: TextFieldsForScreen(
                 label: "Email",
                 txtType: TextInputType.emailAddress,
+                validator: (val) => val.isEmpty ? "Enter an email" : null,
                 onChange: (val) {
                   setState(() {
                     email = val;
                   });
                 },
-                validator: (val) => val.isempty ? "Enter an email" : null,
                 obscure: false),
           ),
           const SizedBox(
@@ -106,14 +106,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: TextFieldsForScreen(
                 label: "Password",
                 txtType: TextInputType.visiblePassword,
+                validator: (val) => val.length < 6
+                    ? "Password should be more than 6 characters"
+                    : null,
                 onChange: (val) {
                   setState(() {
                     password = val;
                   });
                 },
-                validator: (val) => val.length < 6
-                    ? "Password should be more than 6 characters"
-                    : null,
                 obscure: true),
           ),
           const SizedBox(

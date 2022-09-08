@@ -17,15 +17,13 @@ class _AuthScreenState extends State<AuthScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 150, vertical: 200.5),
-              child: Image.asset(
-                "assets/snapchat.png",
-                height: 120,
-                width: 120,
-              ),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 150, vertical: 200.5),
+            child: Image.asset(
+              "assets/snapchat.png",
+              height: 120,
+              width: 120,
             ),
           ),
           const SizedBox(

@@ -55,13 +55,13 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     child: TextFieldsForScreen(
                         label: "Email",
                         txtType: TextInputType.emailAddress,
+                        validator: ((val) =>
+                            val.isempty ? "Enter an email" : null),
                         onChange: (val) {
                           setState(() {
                             email = val;
                           });
                         },
-                        validator: ((val) =>
-                            val.isempty ? "Enter an email" : null),
                         obscure: false),
                   ),
                   const SizedBox(
