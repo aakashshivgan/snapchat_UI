@@ -18,7 +18,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-      padding: const EdgeInsets.only(top: 40, bottom: 50),
+      padding: const EdgeInsets.only(top: 30, bottom: 50),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -31,7 +31,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               icon: const Icon(
                 Icons.arrow_back_ios_new,
                 color: Colors.blue,
-                size: 35,
+                size: 30,
               ),
             ),
           ),
