@@ -1,5 +1,7 @@
 # snapchat_ui
 
+This is Snapchat login and signup Ui made with flutter
+
 A new Flutter project.
 
 ## Getting Started
