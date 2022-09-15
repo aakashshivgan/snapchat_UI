@@ -16,79 +16,84 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
         body: Padding(
-      padding: const EdgeInsets.only(top: 30, bottom: 50),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios_new,
-                color: Colors.blue,
-                size: 30,
-              ),
-            ),
-          ),
-          Container(
-            child: Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  const Text(
-                    "Enter your email",
-                    style: TextStyle(
-                        color: Colors.black87,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: TextFieldsForScreen(
-                        label: "Email",
-                        txtType: TextInputType.emailAddress,
-                        validator: ((val) =>
-                            val.isempty ? "Enter an email" : null),
-                        onChange: (val) {
-                          setState(() {
-                            email = val;
-                          });
-                        },
-                        obscure: false),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Text(
-                    error,
-                    style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 17,
+          padding: const EdgeInsets.only(top: 30, bottom: 50),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back_ios_new,
+                      color: Colors.blue,
+                      size: 30,
                     ),
                   ),
-                ],
-              ),
+                ),
+                Container(
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        const Text(
+                          "Enter your email",
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
+                          child: TextFieldsForScreen(
+                              label: "Email",
+                              txtType: TextInputType.emailAddress,
+                              validator: ((val) =>
+                                  val.isempty ? "Enter an email" : null),
+                              onChange: (val) {
+                                setState(() {
+                                  email = val;
+                                });
+                              },
+                              obscure: false),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          error,
+                          style: const TextStyle(
+                            color: Colors.red,
+                            fontSize: 17,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SignupLoginBtn(
+                    color: Colors.blue,
+                    onPress: () async {
+                      if (_formKey.currentState!.validate()) ;
+                    },
+                    text: "Submit")
+              ],
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          SignupLoginBtn(
-              color: Colors.blue,
-              onPress: () async {
-                if (_formKey.currentState!.validate()) ;
-              },
-              text: "Submit")
-        ],
+        ),
       ),
-    ));
+    );
   }
 }

@@ -17,40 +17,44 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String username = "";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 30, bottom: 40),
-        child: Form(
-          key: _formkey,
-          child: Column(
-            children: [
-              Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back_ios_new,
-                          size: 30,
-                          color: Colors.blue,
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.only(top: 30, bottom: 40),
+          child: SingleChildScrollView(
+            child: Form(
+              key: _formkey,
+              child: Column(
+                children: [
+                  Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: const Icon(
+                              Icons.arrow_back_ios_new,
+                              size: 30,
+                              color: Colors.blue,
+                            ),
+                          ),
                         ),
-                      ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        feildOnScreen(),
+                      ],
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    feildOnScreen(),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 14),
+                  signUpButton(),
+                ],
               ),
-              const SizedBox(height: 14),
-              signUpButton(),
-            ],
+            ),
           ),
         ),
       ),

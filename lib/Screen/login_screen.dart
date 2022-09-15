@@ -17,57 +17,61 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 30, bottom: 40),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                child: Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Colors.blue,
-                          size: 30,
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.only(top: 30, bottom: 40),
+          child: SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: const Icon(
+                              Icons.arrow_back_ios_new,
+                              color: Colors.blue,
+                              size: 30,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 80,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
-                      child: Container(
-                        child: Column(
-                          children: [fieldsOnScreen()],
+                        const SizedBox(
+                          height: 80,
                         ),
-                      ),
-                    )
-                  ],
-                ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
+                          child: Container(
+                            child: Column(
+                              children: [fieldsOnScreen()],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Column(
+                      children: [
+                        SignupLoginBtn(
+                            color: Colors.blue,
+                            onPress: () async {
+                              if (_formKey.currentState!.validate()) {}
+                            },
+                            text: "LOG IN")
+                      ],
+                    ),
+                  )
+                ],
               ),
-              Container(
-                child: Column(
-                  children: [
-                    SignupLoginBtn(
-                        color: Colors.blue,
-                        onPress: () async {
-                          if (_formKey.currentState!.validate()) {}
-                        },
-                        text: "LOG IN")
-                  ],
-                ),
-              )
-            ],
+            ),
           ),
         ),
       ),
@@ -122,6 +126,9 @@ class _LoginScreenState extends State<LoginScreen> {
               "Forgot Password?",
               style: TextStyle(color: Colors.blue),
             )),
+        const SizedBox(
+          height: 20,
+        )
       ]),
     );
   }
