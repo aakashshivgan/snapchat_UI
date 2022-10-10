@@ -1,6 +1,6 @@
 # snapchat_ui
 
-A new Flutter project.
+A Flutter project.
 UI of Snapchat Authentication 
 
 ## Getting Started
